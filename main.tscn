@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://dnt2llw5jcuda"]
+
+[ext_resource type="Texture2D" uid="uid://drqbl7kx0ygy3" path="res://textures/forest_ground_04_4k/textures/forest_ground_04_diff_4k.png" id="1_0fkb2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pywdm"]
+albedo_texture = ExtResource("1_0fkb2")
+uv1_scale = Vector3(25, 25, 25)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_fdtow"]
+material = SubResource("StandardMaterial3D_pywdm")
+size = Vector2(80, 80)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_t8lhn"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.994939, -0.0870179, 0.0502395, -1.49013e-08, 0.499998, 0.866027, -0.10048, -0.861644, 0.497468, 0, 3.90975, 0)
+shadow_enabled = true
+
+[node name="Grond" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00310063, -0.0707943, 0)
+mesh = SubResource("PlaneMesh_fdtow")
+
+[node name="Player" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.999986, 0.00537559, 0, -0.00537559, 0.999986, 0.030942, 0.852473, -0.0787091)
+mesh = SubResource("CapsuleMesh_t8lhn")
